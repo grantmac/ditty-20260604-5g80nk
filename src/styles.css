@@ -73,7 +73,12 @@ body {
   top: 381.32px;
   width: 46.019px;
   height: 48px;
+}
+
+.hero__logo svg {
   display: block;
+  width: 46.019px;
+  height: 48px;
 }
 
 @media (max-width: 1060px) {
