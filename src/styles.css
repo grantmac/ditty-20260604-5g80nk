@@ -58,53 +58,58 @@ body {
 .hero__headline--primary {
   left: calc(50% - 490.5px);
   top: 52px;
-  width: 333.5px;
+  width: max-content;
+  max-width: 333.5px;
+  display: inline-block;
+  z-index: 5;
   cursor: pointer;
+  outline: none;
   transition:
-    transform 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    letter-spacing 0.55s cubic-bezier(0.22, 1, 0.36, 1),
-    filter 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    transform 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    letter-spacing 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+    text-shadow 0.45s cubic-bezier(0.22, 1, 0.36, 1);
   transform-origin: left center;
 }
 
-.hero__headline--primary:hover {
+.hero__headline--primary:hover,
+.hero__headline--primary.is-vibey {
   background-image: linear-gradient(
     115deg,
-    #0a0a0a 0%,
-    #ff3d7f 18%,
-    #a855f7 38%,
-    #22d3ee 58%,
-    #facc15 78%,
-    #0a0a0a 100%
+    #ff3d7f 0%,
+    #a855f7 25%,
+    #22d3ee 50%,
+    #facc15 75%,
+    #ff3d7f 100%
   );
-  background-size: 220% 100%;
+  background-size: 200% 100%;
   -webkit-background-clip: text;
   background-clip: text;
+  -webkit-text-fill-color: transparent;
   color: transparent;
-  animation: hero-headline-vibe 2.4s ease-in-out infinite;
-  letter-spacing: 0.04em;
-  transform: scale(1.03) skewX(-2deg);
-  filter: drop-shadow(0 0 28px rgba(168, 85, 247, 0.45))
-    drop-shadow(0 0 12px rgba(34, 211, 238, 0.35));
+  animation: hero-headline-vibe 1.8s linear infinite;
+  letter-spacing: 0.06em;
+  transform: scale(1.05) skewX(-3deg);
+  filter: drop-shadow(0 0 22px rgba(255, 61, 127, 0.55))
+    drop-shadow(0 0 36px rgba(168, 85, 247, 0.45));
+  text-shadow:
+    0 0 18px rgba(255, 61, 127, 0.55),
+    0 0 32px rgba(34, 211, 238, 0.4);
 }
 
 @keyframes hero-headline-vibe {
-  0%,
-  100% {
-    background-position: 0% 50%;
-  }
-
-  50% {
-    background-position: 100% 50%;
+  to {
+    background-position: 200% 50%;
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__headline--primary:hover {
+  .hero__headline--primary:hover,
+  .hero__headline--primary.is-vibey {
     animation: none;
     background-position: 50% 50%;
-    transform: scale(1.01);
-    letter-spacing: 0.02em;
+    transform: scale(1.02);
+    letter-spacing: 0.03em;
   }
 }
 
